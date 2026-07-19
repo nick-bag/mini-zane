@@ -27,7 +27,7 @@ If you prefer a local server, any static file server will work.
 Build the image:
 
 ```bash
-docker build -t mini-zine .
+docker build --no-cache -t mini-zine .
 ```
 
 Run the container:
@@ -37,3 +37,5 @@ docker run --rm -p 8080:80 mini-zine
 ```
 
 Then open `http://localhost:8080`.
+
+If you change the container config, rebuild the image before running it again.
