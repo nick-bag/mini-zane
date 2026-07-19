@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mini Zine Maker</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Client-only mini zine builder</p>
+          <h1>Mini Zine Maker</h1>
+          <p class="intro">
+            Upload up to eight photos, drag them into order, and export a one-page
+            mini zine layout that stays entirely in your browser.
+          </p>
+        </div>
+
+        <div class="hero-actions">
+          <label class="button primary" for="photo-input">Upload photos</label>
+          <input id="photo-input" type="file" accept="image/*" multiple hidden />
+          <button id="download-button" class="button secondary" type="button" disabled>
+            Download sheet
+          </button>
+          <button id="print-button" class="button secondary" type="button" disabled>
+            Print sheet
+          </button>
+          <button id="clear-button" class="button ghost" type="button">
+            Clear photos
+          </button>
+        </div>
+      </header>
+
+      <section class="panel status-panel">
+        <div>
+          <h2>Photo order</h2>
+          <p class="helper">
+            Page 1 becomes the cover. Leave any unused pages blank if you want.
+          </p>
+        </div>
+        <div class="status-copy">
+          <strong id="photo-count">0 / 8 photos loaded</strong>
+          <p id="status-message">Add at least one photo to enable download and print.</p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="section-heading">
+          <h2>Folded booklet organizer</h2>
+          <p>Drag photos between pages here to set the finished folded zine order.</p>
+        </div>
+        <div id="booklet-preview" class="booklet-preview" aria-live="polite"></div>
+      </section>
+
+      <section class="panel print-panel">
+        <div class="section-heading">
+          <h2>Print sheet preview</h2>
+          <p>Single-page layout with fold guides and the center cut line.</p>
+        </div>
+        <div class="sheet-wrapper">
+          <div id="sheet-preview" class="sheet-preview" aria-label="Printable zine sheet"></div>
+        </div>
+        <div class="legend">
+          <span><i class="legend-line fold"></i> Fold lines</span>
+          <span><i class="legend-line cut"></i> Cut line</span>
+        </div>
+      </section>
+    </main>
+
+    <template id="sheet-cell-template">
+      <div class="sheet-cell">
+        <div class="sheet-image"></div>
+        <span class="sheet-label"></span>
+      </div>
+    </template>
+
+    <template id="spread-template">
+      <article class="spread-card">
+        <h3></h3>
+        <div class="spread-pages"></div>
+      </article>
+    </template>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
