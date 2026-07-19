@@ -1,4 +1,7 @@
 .DS_Store
+._*
+**/._*
+__MACOSX
 .git
 .gitignore
 node_modules

@@ -39,3 +39,12 @@ docker run --rm -p 8080:80 mini-zine
 Then open `http://localhost:8080`.
 
 If you change the container config, rebuild the image before running it again.
+
+If Docker fails on macOS with an error mentioning `._index.html` or `xattr`, clean the folder metadata first:
+
+```bash
+cd /Users/nicholaslake/Desktop/mini-zine
+dot_clean .
+find . -name '._*' -delete
+docker build --no-cache -t mini-zine .
+```
